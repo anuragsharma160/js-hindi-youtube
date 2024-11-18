@@ -120,7 +120,8 @@ const hundreds = 1000000
 // +++++++++++++++++++++++++++++++++++ Maths +++++++++++++++++++++++++++++++++++++
 // maths library JS k sath ati hai by default
 
-console.log(Math);
+// console.log(Math);
+
 // M capital hai Math ka kyuki yeh bhi ek default hi hai JS k andar jaise number hai waise hi same
 // o/p - Object [Math] {}, means yeh apne aap mei ek object hai jiske andar bahut sari properties hai
 // problem yeh hai ki yahan pe jab hum isko console.log(Math) ko run karte hai tab humare pas itni
@@ -138,29 +139,87 @@ console.log(Math);
 // ki + - mei ho jata hai and - + mei aisa nahi hota hai, sirf minus values positive ho jati hai yeh hi
 // absolute hota hai as follows
 
-console.log(Math.abs(-4));
+// console.log(Math.abs(-4));
+
 // o/p is 4
 
-console.log(Math.abs(4));
+// console.log(Math.abs(4));
+
 // o/p is 4, means positive +ve hi rehta hai lekin , -ve positive ban jata hai
 
-console.log(Math.round(4.3));
+// console.log(Math.round(4.3));
+
 // function hai abhi humne dekha property nahi hai function hai browser console mei
 // round k andar kya hota hai jaise apke pas value hai 4.3, ab aap chahte hai ki mujhe decimals
 // k andar kaam mei nahi lena hai to 4.3 ka mujhe round off karke de do, to jaise hi aap round off karenge
 // to 4.3 ka 4 roundn off kar diya i.e. above ka o/p is 4
 
-console.log(Math.round(4.6));
+// console.log(Math.round(4.6));
+
 // o/p is 5
 
 // lekin aap chahte hai ki mujhe control karna hai ki value upper wali choose hogi ya lower wali choose hogi
 // to bhi apko do method milte hai, first method milta hai ceil, ceiling means top to obvious baat hai
 // top wale number choose karega as follows
 
-console.log(Math.ceil(4.2));
+// console.log(Math.ceil(4.2));
+
 // o/p is 5, ceiling means jara sa bhi 4 se jada hua to upper value ayegi o/p mei
 
 // floor is opposite of ceil as follows
-console.log(Math.floor(4.9));
+
+// console.log(Math.floor(4.9));
+
 // o/p is 4
 // sqrt means square root, pow means kisi ki power apko calculate karni hai
+
+// console.log(Math.min(4, 3, 6, 8));
+
+// agar apko find karna hai ki array k andar sabse lowest value konsa hai
+// o/p 3
+
+// console.log(Math.max(4,3,6,8));
+
+// o/p 8
+// .max is opposite of .min
+
+// now math library use kaha ati hai aur hum ise kahan use karne wale hai
+// hum ise use karne wale hai Math.random pe
+
+console.log(Math.random());
+
+// o/p har bar above ka ayega in between 0 and 1 and har bar different o/p ayega, 0 bhi ho sakta hai o/p
+// and 1 bhi ho sakta hai o/p
+// ab humare pas jo questions ayenge ya humare pas jo problem statement hoga usme apko kuch range se kuch range
+// k beech mei values hogi, jaise aap dice game bana rahe hai to apko pata hai 1 se 6 k beech mei hi mujhe values
+// chahiye ya fir koi aur game bana rahe hai to 1 se leke 10 k beech mei hi mujhe value chahiye, ab agar Math.random ki
+// value 0 aur 1 k beech mei ati hai mostly decimal hi ati hai to kya ho agar hum usko 10 se multiply kar de as follows
+
+// console.log(Math.random()*10);
+
+// to wo 10 se multiply karke o/p dega, means 1 digit left mei shift ho jayegi, lekin kyuki sir ne bataya value jo
+// hai 0 bhi ho sakti hai kyuki value kya aa sakti hai 0.041 o/p mei yeh bhi to ho sakta hai 0 and 1 k beech mei
+// to uss case ko avoid karne k liye hum kya kar sakte hai jadatar iske andar ek plus 1 kar dete hai as follows
+// ki uss case ko hum avoid kar de ki 0.04 bhi to ho sakta hai usko karenge to problem ho jayega
+
+// console.log(Math.random()*10 + 1);
+
+// to abhi jo o/p value hai uski guarantee hai ki yeh 3 aya (means 3.445 aya o/p mei) to guarantee hai ki
+// minimum jo value hai wo 1 ayegi 0 to nahi ayegi, theek hai itna case ho gya humare pass
+
+// ab kya karte hai ki hum usually jo kya hota hai ki yeh jo values hai ki iss tarah se 1 add karenge (plus 1 kiya)
+// fir 10 mutiply as above for BODMAS etc wo kafi problem ho jayega to exact same ko avoid karne k liye hum kya karte
+// hai phele is Math.random ko hum multiply kar dete hai 10 se aur usko wrap kar diya bracket k andar
+
+console.log((Math.random()*10));
+
+// ab jo rsult aya usme kar do plus 1 as follows
+
+console.log((Math.random()*10)  + 1);
+console.log((Math.random()*10)  + 1);
+
+// to ab hume pata hai guaranteed hai 100% ki jo values hogi wo confirm hogi aur hume Maths k bare mei ki
+// konsa wala first execute hoga konsa wala second execute hoga yeh bhi pata karne ki need nahi hai
+// to abhi guarantee hai o/p aya 6 aya 4 aya (means 6.something and 4.something) lekin yeh values to kafi jada
+// ja rahi hai 0 and 9 k beech mei , to apko kahan se kahan tak value chahiye uspe depend karega ki aap kisse isko
+// (means) multiply kar rahe hai
