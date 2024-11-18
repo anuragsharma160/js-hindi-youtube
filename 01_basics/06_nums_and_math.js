@@ -202,7 +202,7 @@ console.log(Math.random());
 // to uss case ko avoid karne k liye hum kya kar sakte hai jadatar iske andar ek plus 1 kar dete hai as follows
 // ki uss case ko hum avoid kar de ki 0.04 bhi to ho sakta hai usko karenge to problem ho jayega
 
-// console.log(Math.random()*10 + 1);
+console.log(Math.random()*10 + 1);
 
 // to abhi jo o/p value hai uski guarantee hai ki yeh 3 aya (means 3.445 aya o/p mei) to guarantee hai ki
 // minimum jo value hai wo 1 ayegi 0 to nahi ayegi, theek hai itna case ho gya humare pass
@@ -211,15 +211,86 @@ console.log(Math.random());
 // fir 10 mutiply as above for BODMAS etc wo kafi problem ho jayega to exact same ko avoid karne k liye hum kya karte
 // hai phele is Math.random ko hum multiply kar dete hai 10 se aur usko wrap kar diya bracket k andar
 
-console.log((Math.random()*10));
+// console.log((Math.random()*10));
 
 // ab jo rsult aya usme kar do plus 1 as follows
 
-console.log((Math.random()*10)  + 1);
-console.log((Math.random()*10)  + 1);
+// console.log((Math.random()*10)  + 1);
+// console.log((Math.random()*10)  + 1);
 
 // to ab hume pata hai guaranteed hai 100% ki jo values hogi wo confirm hogi aur hume Maths k bare mei ki
 // konsa wala first execute hoga konsa wala second execute hoga yeh bhi pata karne ki need nahi hai
 // to abhi guarantee hai o/p aya 6 aya 4 aya (means 6.something and 4.something) lekin yeh values to kafi jada
 // ja rahi hai 0 and 9 k beech mei , to apko kahan se kahan tak value chahiye uspe depend karega ki aap kisse isko
-// (means) multiply kar rahe hai
+// (means 10 se multiply kiya) multiply kar rahe hai
+
+// chota sa trick min aur max define karne ka and ek formula as follows
+
+const min = 10
+const max = 20
+// to obvious si baat hai define ho gya hai ki hume chahiye values 10 aur 20 k beech mei, jo concept humne upar
+// seekha hai line number 218 and line number 219 mei exact same concept use hota hai lekin iska ek
+// generic syntax formula ban jata hai as follows
+// ek cheej aur yahan o/p mei jo values hai (o/p of line 218 and line 219) wo hume chahiye ki sabse choti aye
+// to kai bar isko (means line 219 ko) Math.floor k saath bhi wrap kiya jata hai as follows
+
+console.log(Math.floor(Math.random()*10)  + 1);
+
+// to Math.floor ka itna koi difference nahi ayega as o/p of above is 8, and o/p changes everytime we run this command
+// to floor basically usko round off kar deta hai lowest values pe to hum dekh rahe hai har bar values aa rahi hai
+// (iss floor command ko bar bar run karne par) to agar ek hi number chahiye to wo number k regarding hai
+
+// line 237 ko hum wapas se use karenge, to abhi humne bola Math.random as follows
+
+// Math.random()
+
+// ab kya dekha humne yahan pe line 237 mei ki Math.random ko hum multiply karte hai (line 237 mei Math.random ko 10
+// se multiply kiya) ki itna to value chahiye hi chahiye hume, ab uske liye hum kya karte hai ek chota sa yahan pe
+// formula seekh lete hai isko (Math.random() ko) multiply karna hai apko, kisse multiply karna hai, jaisa ki humne
+// dekha ki abhi 10 se kiya Math.random() ko line 237 mei, to abhi ek formula hai max - min aur usko aap plus kar 
+// dijiye one se taki zero values na aye as follows
+
+// Math.random() * (max - min + 1)
+
+// aur kyuki apko jo bhi minimum value chahiye to obvious si baat hai abhi to humne kya intejam kara ki zero ko avoid
+// kara hai iss first 1 se (i.e. (max - min + 1) wale 1 se), but abhi hum khe rahe hai ki nahi hume to sirf zero se kaam
+// nahi chalega , hume minimum 10 value to do hi do (line 229) isse upar hi do (min = 10 se upar) , to aap kya karo
+// yahan pe jo bhi aapke pas result aya hai uske andar aap add kar do + minimum value ko as follows
+
+// Math.random() * (max - min + 1) + min
+
+// lekin abhi humne seekha hai ki + min aise add kar doge (as in line 260) to kaam nahi hoga kyuki isko (line260) ko
+// humne wrap up kiya as follows
+
+// (Math.random() * (max - min + 1) + min)
+
+// aur bola console.log
+
+// console.log(Math.random() * (max - min + 1) + min)
+
+// ab yahan pe final number ayega o/p mei to aap dekhenge 5.9 to yeh to chahiye hi nahi , abhi upar dekha o/p mei ki ek
+// hi digit chahiye (i.e. 2) to kya karo Math.floor kar do to line 268 ko Math.floor mei wrap kar diya as follows
+
+console.log(Math.floor(Math.random() * (max - min + 1)))
+
+// ab Math.floor karne se kya hoga ki theek hai guarantee ho gayi ki abhi values aa rahi hai, but values dekhiye 2
+// bhi aa rha hai, 1 bhi aa rha hai, 6 bhi aa rha hai o/p mei, aur minimum kitna chahiye hume 10 to chahiye hi chahiye
+// (line 229) to kya karo simple sa hai yahan par aao (line 274 mei aao) aur usko kar do + min as follows
+
+console.log(Math.floor(Math.random() * (max - min + 1)) + min)
+// to minimun (line 229 const min = 10) humne usme add hi kar diya hai
+// to ab kya value ayi har bar o/p mei 14 , 12 aur 19
+// toda sa isko aur janiyega ki 1st, 2nd step mei kya ho rha hai
+
+// summary explanation- math.random (line 189) apko 0 aur 1 k andar value deta hai, to values humesha 0.1 , 0.2 , 0.4 bhi ho sakti hai
+// ab problem kya ata hai jab aap usko 10 se multiply karte hai (line 205) means humne values ko shift to kar diya left mei
+// (10 se multiply k baad left mei shift hoti hai 1st digit) , lekin ho sata hai kai bar values aye 0.1 to math.floor jo hai
+// wo apko value de dega zero , us case ko avoid karne k liye sir ne usme 1 add kar diya (line 237) kyuki humara jo 
+// minimum case hai ki hume value chahiye 1 se to upar chahiye aage kitna bhi ho sakta hai to uss case mei humne isko add kar diya
+// to yeh hume jo values dega wo 1 se leke 9 k beech mei dega,
+// lekin kai bar case ata hai ki apko min bhi define karna hai and max bhi define karna hai (line 229 and 230)
+// to uss case mei humne kya kara ki math.random ka to use kara hi kara (line 280)  plus humne usko multiply
+// seedha 10 se karne ki bajai humne kya kara (max - min) taki humare pas wo range aa jaye (line 229 and 230) ki iss range k andar chahiye hume
+// aur plus 1 karne k liye (max - min + 1) taki 0 case avoid kar du, uske bad humne kaha ki theek hai yeh value to abhi bhi 
+// wo hi aa rahi hai jo upar thi (line 237) to uss case ko avoid karne k liye ki minimum to itna chahiye hi , humne uske andar
+// ek minimum value add kar di (min in last of line 280)
