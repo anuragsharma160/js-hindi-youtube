@@ -175,8 +175,54 @@ console.log(newDate.getMonth() + 1);
 
 // ab in syntax ko , in strings ko use karke kai bar complex date print karane k programs etc online milte hai
 // practice karte hai log suppose kare apko full time likhna hai to aap iss format mei likhiye to waha pe log
-// string interpolation lete hai means back ticks, uske andar values insert karte hai ${}
+// string interpolation lete hai means back ticks, uske andar values insert karte hai aise - ${}
 
-// ``
+// `${}`
+// `${newDate.getDay()}`
+// `${newDate.getDay()} and the time is`
+
+// date ka ek method humare bahut jada kaam ayega as follows
+
+// newDate.toLocaleString()
+// above method apne aap mei bahut interesting hai kyuki iske andar aap jo define karte hai wo ek object
+// define karte hai aur aap bahut sare parameters yahan pe define kar sakte hai, jaise for example
+// jaise aap string likhte hai yahan pe ki kya apko chahiye, to first jo aap likhte hai wo likhte hai
+// ki apko konsa internationalization chahiye, to yahan likh dete hai hum default chahiye hume
 
 
+// newDate.toLocaleString('default')
+// aur uske baad humne likha object as follows
+
+// newDate.toLocaleString('default', {})
+
+// to apko kya chahiye wo aap pora ka pora yahan pe define kar sakte hai
+// jaise for eg Ctrl space press karte hi humko sari properties wahan par as follows
+
+// newDate.toLocaleString('default', {
+    
+// })
+
+// jaise for example hume chahiye week day (Ctrl Space), to week day k andar chahiye hume kuch values
+// (Ctrl Space)
+
+// newDate.toLocaleString('default', {
+//     weekday: 
+// })
+
+// abhi tak Mon aa rha tha, lekin apko long chahiye, narrow chahiye, short chahiye (Ctrl Space)
+
+// newDate.toLocaleString('default', {
+//     weekday: "long"
+// })
+
+// yeh exact .toLocalString wala hi kaam karega, but agar humko chahiye ki hum uss format ko aur
+// customize kare , to above tareh se hum usko cuatomize kar sakte hai, aap ek property (weekday)
+// ko define kar sakte hai and aap chahe to aur properties ko bhi define kar sakte jaise suppose kariye
+// ki apko date chahiye wo numeric mei chahiye, time zone konsa chahiye as follows
+
+// newDate.toLocaleString('default', {
+//          weekday: "long",
+//          timeZone: ''
+// })
+
+// time zone k bare mei aur search karna padega google pe Sir ko
