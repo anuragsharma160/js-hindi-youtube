@@ -41,7 +41,7 @@ const myArr = [0, 1, 2, 3, 4, 5]
 
 // console.log(myArr[0]);
 // o/p is 0
-console.log(myArr[1]);
+// console.log(myArr[1]);
 // o/p is 1
 
 // to iss tareh se hum values ko access karte hai
@@ -197,7 +197,102 @@ const myArr2 = new Array(1, 2, 3, 4)
 
 // ================================================================================================================
 
-const newArr = myArr.join()
+// const newArr = myArr.join()
 
-// previous array ko bhi print kar lete hai
-// 13:48
+// previous array ko bhi print kar lete hai as follows
+
+// console.log(myArr);
+
+// [ 0, 1, 2, 3, 4, 5 ]
+// newArr ko bhi print kar lete hai, (myArr aya array ki format mei i.e. in square brackets)
+
+// console.log(newArr);
+
+// o/p 0,1,2,3,4,5 (i.e yeh directly aa gya without any square brackets) , to yahan pe log aksar confuse
+// ho jate hai ki values to wo hi ayi hai, are values to wo hi ayegi na kyuki array hi hai
+// lekin jo change hua hai wo actually mei change hua hai type as follows
+
+// console.log(typeof newArr);
+// o/p is string        (means jab hum (typeof newArr) ko run karke dekhenge yahan pe to apko pata lagega ki haa
+// join ne humare array ko bind bhi kar diya hai aur uske andar string mei bhi usko convert kar diya hai)
+// kaise convert hua hai aage dekhenge, abhi hume sirf itna pata hai theek hai sari values string mei
+// convert ho gyi hai comma separated i.e. o/p of console.log(newArr) is 0,1,2,3,4,5
+
+
+// ===========================================================================================================
+
+// slice, splice
+
+console.log("A ", myArr);
+// o/p is A  [ 0, 1, 2, 3, 4, 5 ]
+// space chala k diya hai "A " k baad
+// o/p explanation - humne simply dekha ki humare pas A jo hai wo original array hai abhi bhi i.e. A  [ 0, 1, 2, 3, 4, 5 ]
+
+// const myn1 = 
+// aur iske andar hum ek operation yahan pe perform karte hai ki my.Arr k saath aap yeh slice wala operation
+// perform kariye (hover over .slice - returns a copy of a section of an array, haa to theek hai return karta hai ek
+// section of array) as follows
+
+// const myn1 = myArr.slice()
+
+// to hum yahan values de dete hai ki theek hai hume 1,3 
+
+const myn1 = myArr.slice(1, 3)
+
+// (1, 3) means first ko include karuye, second ko include kariye aur third include nahi hota hai isme
+// to console.log karwate hai
+
+console.log(myn1);
+// o/p is [ 1, 2 ]
+// o/p explanation - to obvious si baat hai iss array ( A  [ 0, 1, 2, 3, 4, 5 ] ) k andar se kya values
+// ayi, isne bola 1 se start karo, to 0 index pe 0 hai, 1 index pe 1 hai and 2 index pe 2 hai and 3 ko include nahi karna
+// to o/p aya [ 1, 2 ], ( 3rd value 2 hai isliye myArr.slice(1,3) )
+
+// 
+// iske saath saath hum ek ek aur operation chahenge ki yeh jo original array hai please isko
+// bhi print kariye as follows
+
+// console.log("A ", myArr); yeh line likhni nahi hai as hum "B " likhenge
+// isko hum naam de dete hai "B " yahan pe as follows
+
+console.log("B ", myArr);
+
+// o/p is B  [ 0, 1, 2, 3, 4, 5 ]
+
+// ==================================================================================================
+
+// splice
+// splice k liye humne myn1 ko kar diya myn2
+
+const myn2 = myArr.splice(1, 3)
+// hum isko i.e console.log("B ", myArr) ko bhi print karke dekhenge ki actual mei humare original array k saath kya hua hai
+// bas B ki jagah C likh diya as follows
+
+console.log("C ", myArr);
+// o/p C  [ 0, 4, 5 ]
+
+
+console.log(myn2);
+
+// o/p [ 1, 2, 3 ]
+
+// difference b/w slice and splice - to 3 points humne mark kare as follows
+// 1st point. A jahan pe original array tha i.e. console.log("A ", myArr)
+// 2nd point. B humne slice use kara i.e. console.log("B ", myArr)
+// 3rd point aur C jahan pe humne splice use kara i.e. console.log("C ", myArr)
+
+// to A k andar jo tha (i.e. 1st o/p ---- A  [ 0, 1, 2, 3, 4, 5 ]) wo humare pas as it array rehne hi wala tha
+// usme koi difference nahi aane wala tha
+
+// B k andar same array hai ( i.e. o/p ---- B  [ 0, 1, 2, 3, 4, 5 ] ) ,theek hai yeh bhi maan liya humne ki
+// slice use karte hai same array hai
+
+// lekin jab humne C dekha ( i.e. o/p ------ C  [ 0, 4, 5 ] ) to humne dekha ki array hi change ho gya hai
+// to splice k andar se jo splice tha wo jo portion tha wo nikal hi gya hai pora aur baki apka original array hi manipulate
+// ho gya hai
+
+// to yeh hi sabse important difference hai slice aur splice k andar
+// means konsa operation original array ko manipulate karta hai, konse ko nahi karta hai
+
+
+
