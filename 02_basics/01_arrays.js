@@ -296,3 +296,119 @@ console.log(myn2);
 
 
 
+// ==========================================================================================================
+
+// slice & splice yahoo baba
+
+// const myArr = ["Sanjay", "Aman", "Rehman", "Rahul", "Karan"]
+
+// "Aman" "Rehman" "Rahul" nikalna chahte hai , iss array mei koi change nahi hoga, ek naya array ban jayega, 
+// iske liye we use slice method of array
+
+// slice(start, end) starting index and end index
+
+// start index is included, end index is excluded
+
+// when we count from start index of element start from 0,1,2,3,4,.........
+
+// when we count from reverse index of element start from -1,-2,-3,-4,.........
+
+// const myArr1 = myArr.slice(1 , 4)
+
+// console.log(myArr1);
+// o/p [ 'Aman', 'Rehman', 'Rahul' ] 1 index se leke 3 index tak sari values aa gayi as end index (here 4 index) is not included in slice
+
+// =====================================================================================================================================
+// const myArr2 = myArr.slice(1)
+
+// console.log(myArr2);
+// o/p [ 'Aman', 'Rehman', 'Rahul', 'Karan' ] 1 index se leke end tak sari values de di naye array mei
+
+// =====================================================================================================================================
+
+// const myArr3 = myArr.slice(-2)
+
+// console.log(myArr3);
+// o/p [ 'Rahul', 'Karan' ] -1 index pe Karan, -2 index pe Rahul, -2 se leke end tak sari values de di naye array mei
+
+// =====================================================================================================================================
+
+// const myArr4 = myArr.slice(-3, -1)
+
+// console.log(myArr4);
+// o/p [ 'Rehman', 'Rahul' ] -3 index and -2 index de diya & -1 index include nahi kiya naye array mei, as slice mei end index is excluded
+
+// bas yehi tha array ka slice method
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Splice function
+
+// hume kisi existing array k andar 2 nayi values/elements dalni hai and hum yeh 2 nayi values beech mei dalna chahte hai
+// as aage and peeche agar nayi values daalni hai to uske liye humare pas push and unshift naam k function aate hai
+
+// splice(index, how many Delete, "new value")
+
+// Splice method naye array nahi banayega, splice method existing array ko hi change kar deta hai
+// that's why we use myArray again and again and have not use like myArray1, myArray2, myArray3, etc 
+
+const myArray = ["Sanjay", "Aman", "Rehman", "Rahul"]
+
+
+// console.log(myArray.splice(2,));
+
+// let "Rehman" ko aage karke yahan kuch add karna hai that's why we have taken 2
+
+// console.log(myArray.splice(2,0));
+
+// 0 isliye kyuki hume kisi bhi element ko delete nahi karna
+
+// console.log(myArray.splice(2,0, "Neha", "Karan"));
+
+// "Neha", 'Karan" hume add karna hai isliye
+
+// myArray.splice(2, 0, "Neha", "Karan");
+
+// console.log(myArray);
+
+// o/p [ 'Sanjay', 'Aman', 'Neha', 'Karan', 'Rehman', 'Rahul' ]
+
+// ================================================================================================================
+
+// if "Rehman" delete ho jaye and "Rehman" ki jagah "Neha" and "Karan" aa jaye then we use 1 instead of 0
+
+// myArray.splice(2, 1 , "Neha", "Karan")
+
+// console.log(myArray);
+
+// o/p [ 'Sanjay', 'Aman', 'Neha', 'Karan', 'Rahul' ]
+
+// ================================================================================================================
+
+// myArray.splice(2, 2, "Neha", "Karan")
+
+// console.log(myArray);
+// o/p [ 'Sanjay', 'Aman', 'Neha', 'Karan' ] 
+// first 2 means 2nd index , second 2 means 2nd index se two values delete ho gayi and unki jagah "Neha", "Karan" aa gaye
+// new array mei
+
+// ====================================================================================================================
+
+// myArray.splice(-2, 1, "Neha", "Karan")
+
+// console.log(myArray);
+// o/p [ 'Sanjay', 'Aman', 'Neha', 'Karan', 'Rahul' ] 
+// -2 index value se 1 value delete ho gayi and uski jagah "Neha" and "Karan" aa gaye new array mei
+
+// =============================================================================================================================
+
+// let hum koi new value add karna hi nahi chahte but beech mei se koi value hatana chahte hai
+
+myArray.splice(2,2)
+
+console.log(myArray);
+
+// o/p [ 'Sanjay', 'Aman' ]
+// 2nd index se start hoke 2 values delete ho gayi
+
+
